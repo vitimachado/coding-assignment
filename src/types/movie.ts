@@ -53,6 +53,7 @@ export interface IMovieComponent {
 
 export interface MoviesSlice {
     movies: MoviesResponse | null;
+    searchParam?: string | null;
     fetchStatus?: string
 }
 
