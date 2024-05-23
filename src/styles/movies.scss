@@ -64,6 +64,10 @@
             overflow: scroll;
             font-size: 0.7rem;
             line-height: 105%;
+            
+            overflow-x: hidden;
+            scrollbar-color: #000641 #0c3b71;
+            scrollbar-width: thin;
     
             @media (max-width: 720px) {
                 height: 60px;
