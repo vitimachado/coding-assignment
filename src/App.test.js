@@ -3,6 +3,22 @@ import userEvent from '@testing-library/user-event'
 import { renderWithProviders } from "./test/utils"
 import App from './App'
 
+global.IntersectionObserver = class IntersectionObserver {
+  constructor() {}
+
+  observe() {
+    return null;
+  }
+
+  disconnect() {
+    return null;
+  };
+
+  unobserve() {
+    return null;
+  }
+};
+
 it('renders watch later link', () => {
   renderWithProviders(<App />)
   const linkElement = screen.getByText(/watch later/i)
