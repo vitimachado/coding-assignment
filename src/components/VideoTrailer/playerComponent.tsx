@@ -1,5 +1,5 @@
 import { Player } from '../../types/common'
-import YoutubePlayerComponent from '../YoutubePlayer'
+import YoutubePlayerComponent from './Players/YoutubePlayer'
 
 export const PlayerComponent = ({ videoKey, player = 'youtube' }: Player) => {
     if(!videoKey) {

@@ -10,7 +10,7 @@ export const NavLinkComponent = () => {
   return (
     <nav>
         <NavLink to="/starred" data-testid="nav-starred" className="nav-starred">
-            {starredMovies.length > 0 ? (
+            {starredMovies && starredMovies?.length > 0 ? (
                 <>
                     <i className="bi bi-star-fill bi-star-fill-white" />
                     <sup className="star-number">{starredMovies.length}</sup>

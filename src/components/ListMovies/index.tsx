@@ -2,17 +2,13 @@ import { useDispatch } from "react-redux";
 import { fetchMovie } from "../../data/movieSlice";
 import { AppDispatch } from "../../data/store";
 import { ListMovies, Movie } from "../../types/movie";
-import { MovieComponent } from "../Movie";
+import { MovieComponent } from "../Movie/Movie";
 
 export const ListMoviesComponent = ({ movies }: ListMovies) => {
     const dispatch = useDispatch<AppDispatch>();
 
-    const viewTrailer = (movie: Movie) => {
+    const handleSetMovie = (movie: Movie) => {
         dispatch(fetchMovie(movie.id));
-    }
-
-    const onCloseCard = () => {
-
     }
 
     return (
@@ -22,8 +18,7 @@ export const ListMoviesComponent = ({ movies }: ListMovies) => {
                     <MovieComponent
                         movie={movie} 
                         key={movie.id}
-                        viewTrailer={viewTrailer}
-                        closeCard={onCloseCard}
+                        onCLickViewTrailer={handleSetMovie}
                     />
                 )
             })}

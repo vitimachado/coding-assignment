@@ -4,8 +4,9 @@ import Header from './components/Header/Header'
 import Movies from './pages/Movies/Movies'
 import Starred from './pages/Starred/Starred'
 import WatchLater from "./pages/WatchLater/WatchLater"
-import './app.scss'
 import { VideoTrailer } from './components/VideoTrailer'
+
+import './app.scss'
 
 const App = () => {
   return (

@@ -29,12 +29,7 @@ export interface MovieSlice {
     fetchStatus: FetchStatus
 }
 
-export interface MoviesSlice {
-    movies: MoviesResponse | null;
-    fetchStatus: string
-}
-  
-interface MoviesResponse {
+export interface MoviesResponse {
     page: number
     results: Movie[]
     total_pages: number
@@ -42,5 +37,31 @@ interface MoviesResponse {
 }
 
 export interface ListMovies {
-    movies?: Movie[]
+    movies?: Movie[] | null
+}
+
+export interface MovieButton {
+    movie: Movie
+}
+
+export interface IMovieComponent {
+    movie: Movie
+    onCLickViewTrailer: (movie: Movie) => void
+}
+
+// Slices
+
+export interface MoviesSlice {
+    movies: MoviesResponse | null;
+    fetchStatus?: string
+}
+
+export interface StarredSlice {
+    starredMovies: Movie[] | null;
+    fetchStatus?: string
+}
+
+export interface WatchedLaterSlice {
+    watchLaterMovies: Movie[] | null;
+    fetchStatus?: string
 }
