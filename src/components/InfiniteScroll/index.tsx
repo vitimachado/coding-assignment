@@ -9,7 +9,7 @@ interface InfiniteScroll {
     onLoad?: () => void
 }
 
-export const InfiniteScrollCOmponent = ({ children, hasMoreElements = false, onLoad }: InfiniteScroll) => {
+export const InfiniteScrollComponent = ({ children, hasMoreElements = false, onLoad }: InfiniteScroll) => {
     const scrollElementRef = useRef<null | HTMLDivElement>(null);
     const elementIsVisible = useIsVisibleOnScreen(scrollElementRef);
 
@@ -22,7 +22,11 @@ export const InfiniteScrollCOmponent = ({ children, hasMoreElements = false, onL
     return (
       <>
         {children}
-        <span ref={scrollElementRef} />
+        <span ref={scrollElementRef}>
+            {
+                hasMoreElements ? <SkeletonMovie rows={1} /> : <></>
+            }
+        </span>
         {
             hasMoreElements ? <SkeletonMovie rows={10} /> : <></>
         }

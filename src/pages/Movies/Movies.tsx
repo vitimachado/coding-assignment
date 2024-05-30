@@ -7,7 +7,7 @@ import { AppDispatch, RootState } from '../../data/store';
 import { ListMoviesComponent } from '../../components/ListMovies';
 
 import '../../styles/movies.scss'
-import { InfiniteScrollCOmponent } from '../../components/InfiniteScroll';
+import { InfiniteScrollComponent } from '../../components/InfiniteScroll';
 
 const Movies = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -18,17 +18,10 @@ const Movies = () => {
     const hasSearchParam = (!!searchParam && searchParam !== '');
 
     useEffect(() => {
-        if(!searchParam) {
-            dispatch(fetchMovies(ENDPOINT_DISCOVER));
-        }
-    }, []);
-
-    
-    useEffect(() => {
         if (hasSearchParam) {
             dispatch(fetchMovies(`${ENDPOINT_SEARCH}&query=`+searchParam));
         }
-        else if (searchParam === '') {
+        else if (searchParam === '' || !searchParam) {
             dispatch(fetchMovies(ENDPOINT_DISCOVER));
         }
     }, [searchParam]);
@@ -42,9 +35,9 @@ const Movies = () => {
 
     return (
         <div data-testid="movies" className="movies-container">
-            <InfiniteScrollCOmponent hasMoreElements={hasMoreElements} onLoad={onLoad}>
+            <InfiniteScrollComponent hasMoreElements={hasMoreElements} onLoad={onLoad}>
                 <ListMoviesComponent movies={movies?.results} />
-            </InfiniteScrollCOmponent>
+            </InfiniteScrollComponent>
         </div>
     )
 }

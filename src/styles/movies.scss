@@ -12,14 +12,18 @@
     }
 
     .wrapper {
-        width: 100%;
+        width: 200px;
         padding: 0 6px;
         margin-bottom: 2rem;
+
+        @media (max-width: 480px) {
+            width: 100%;
+        }
     }
 
     .movies-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         grid-gap: 20px;
     }
 
